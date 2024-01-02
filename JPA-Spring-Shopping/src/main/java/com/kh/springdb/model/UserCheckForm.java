@@ -22,8 +22,14 @@ public class UserCheckForm { // 사용자 ID나 비밀번호 이메일을 회원
 		
 		@NotEmpty : 메세지를 예외값으로 발생시킴. -> Empty 예외체크
 	 */
-	@NotNull(message = "가입자 선택은 필수입니다.")
-	private UserRole isRole;
+	// 방법 1
+	// @NotNull(message = "가입자 선택은 필수입니다.")
+	// private UserRole isRole;
+	
+	
+	// 방법 2
+	@NotEmpty(message = "가입자 선택은 필수입니다.")
+	private String isRole;
 	
 	@Size(min = 3, max = 25)
 	@NotEmpty(message = "사용자 ID는 필수로 입력해야 합니다.")

@@ -28,7 +28,9 @@ public class ProductService {
 		 int conPage = Math.max(0, page);
 		 Pageable pageable = PageRequest.of(conPage, 1);
 		  */					//(page 페이지 값 , 1= 페이지당 보여줄 목록 개수)
-		Pageable pageable = PageRequest.of(page, 3, Sort.by("createDate").descending());
+		int conPage = Math.max(0, page);
+		Pageable pageable = PageRequest.of(conPage, 1);
+		//Pageable pageable = PageRequest.of(page, 3, Sort.by("createDate").descending());
 		return productRepository.findAll(pageable);
 	}
 	
@@ -36,17 +38,17 @@ public class ProductService {
 		// 이미지 파일 이름 가져오기
 		String originName = imgFile.getOriginalFilename();
 		
-		String  projectPath = System.getProperty("user.dir") + "/src/main/resources/static/img/";
+		String projectPath = System.getProperty("user.dir") + "/src/main/resources/static/img/";
 		
 		File saveFile = new File(projectPath, originName);
 		
 		imgFile.transferTo(saveFile); // MultipartFile 에 File로 읽어온 이미지 파일을 저장하기 위해 변환하기	
 		
-		product.setImgName(originName); // 가져온 파일 이름 원본 저장
+		product.setImgName(projectPath); // 가져온 파일 이름 원본 저장
 		//product.setImgPath(projectPath); // 경로 저장을 DB에 작성해주기
 		product.setImgPath("/img/" + originName);
 		
-		productRepository.save(product);
+		productRepository.save(product); // 저장
 		
 		
 	}

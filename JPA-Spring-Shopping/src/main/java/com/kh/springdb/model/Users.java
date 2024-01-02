@@ -13,8 +13,9 @@ public class Users {
 	private Long id;
 	
 	// isRole 가입할 때마다 이사람이 판매자인지 소비자인지 체크해서 가입하기
-	@Enumerated(EnumType.STRING)
-	private UserRole isRole;
+	// @Enumerated(EnumType.STRING)
+	// private UserRole isRole;
+	private String isRole;
 	
 	@Column(unique = true)
 	private String userName;
@@ -25,4 +26,13 @@ public class Users {
 	private String email;	
 	
 	// 추천인을 넣고 싶다면 추천자를 생성해서 넣어도 됨.
+	/*
+	//제품에 대한 좋아요를 받고 싶다..
+	//추천에 관련된 변수를 추가
+	@OneToMany(
+            mappedBy = "securityUser",
+            cascade = CascadeType.ALL, //User 삭제시 관련된 Heart도 삭제
+            orphanRemoval = true,
+            fetch = FetchType.LAZY)
+    private List<Heart> heart;*/
 }

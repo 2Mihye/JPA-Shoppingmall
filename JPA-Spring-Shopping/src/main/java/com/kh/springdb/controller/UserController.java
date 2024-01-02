@@ -29,14 +29,19 @@ public class UserController {
 	// 회원가입에 대한 PostMapping
 	@PostMapping("/signup")
 	public String signUp(@Valid UserCheckForm userCheckForm, BindingResult bindingResult) {
+		
+		if(bindingResult.hasErrors()) {
+			return "signup_form";
+		}
+		
 		if(!userCheckForm.getPassword1().equals(userCheckForm.getPassword2())) { // 만약 패스워드 2개가 일치하지 않는다면 일치하지 않습니타 메세지!
 			bindingResult.rejectValue("password2", "passwordInCorrect", "비밀번호와 비밀번호 확인이 일치하지 않습니다.");
 			return "signup_form";
 		}
 		
 		// HTML 폼에서 선택한 역할을 가져오기 위해 
-		UserRole role = userCheckForm.getIsRole();
-		userService.create(userCheckForm.getUserName(), userCheckForm.getEmail(), userCheckForm.getPassword1(), role);
+		//UserRole role = userCheckForm.getIsRole();
+		userService.create(userCheckForm.getUserName(), userCheckForm.getEmail(), userCheckForm.getPassword1(), userCheckForm.getIsRole());
 		//userService.create(userCheckForm.getUserName(), userCheckForm.getEmail(), userCheckForm.getPassword1());
 		return "redirect:/";
 	}

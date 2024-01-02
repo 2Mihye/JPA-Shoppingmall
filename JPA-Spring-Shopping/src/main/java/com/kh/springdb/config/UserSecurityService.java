@@ -34,15 +34,15 @@ public class UserSecurityService implements UserDetailsService{
 		// 사용자명을 기준으로 사용자 정보를 가져오기
 		
 		@Override
-		public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException{
-			Optional<Users> _siteUser = userRepository.findByUserName(userName);
+		public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
+			Optional<Users> _siteUser = userRepository.findByUserName(username);
 			if(_siteUser.isEmpty()) {
 				throw new UsernameNotFoundException("사용자를 찾을 수 없습니다.");
 			}
 			Users users = _siteUser.get();
 			List<GrantedAuthority> authorities = new ArrayList<>();
 			// 만약에 admin user로 로그인된다면 로그인 분류를 role에 따라 추가로 작성
-			if("admin".equals(userName)) {
+			if(UserRole.ADMIN.equals(users.getIsRole())) { // if ("admin".equals(username))
 				authorities.add(new SimpleGrantedAuthority(UserRole.ADMIN.getValue()));
 			} else {
 				authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
