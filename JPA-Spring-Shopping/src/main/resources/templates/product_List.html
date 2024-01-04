@@ -3,10 +3,36 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Product List</title>
+		<style>
+		    body {
+			    justify-content: center;
+			    align-items: center;
+			    height: 100vh;
+			    margin: 0;
+			    text-align: center;
+    		}
+		    .container {
+		    	border: solid;
+      			width: 30%;
+      			margin: 0 auto;
+      			padding-bottom: 40px;
+			    border-radius: 10px;
+			    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    		}
+    		
+    		button {
+				background-color: #305A50; /* 다크 그린 버튼 */
+				color: white; /* 버튼 텍스트 색상을 화이트로 설정합니다. */
+				padding: 10px 20px;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Product List</h1>
-		<a th:href="@{/product/new}">상품 추가하기</a>
+		<h1>Product List</h1><br/>
+		<a th:href="@{/product/new}">상품 추가하기</a><br/>
 <!--1--><div th:each="product, loop : ${paging.content}">
 			  <div th:if="${product.imgName != null and product.imgPath != null}">		
 			    	<img th:src="@{${product.imgPath}}" >
@@ -18,7 +44,7 @@
 			<span th:text="${product.name}"></span>
 			
 			<label>제품 가격 : </label>
-			<span th:text="${product.price}"></span>
+			<span th:text="${product.price}"></span><br/>
 			<!--
 			<button th:if=${#authorization.expression('isAuthenticated()')")
 					th:onclick=" 'likeProduct(' + ${product.id} + '   )   " type="button">좋아요</button>
@@ -26,7 +52,7 @@
 			
 			
 			
-			<a th:href="@{'/product/detail/' + ${product.id}}">상세보기</a>
+			<a th:href="@{'/product/detail/' + ${product.id}}">상세보기</a><br/>
 			
 			<!-- 장바구니에 상품을 담고자 한다면 장바구니에 담기 버튼 생성해서 담아주기 -->
 			<form th:action="@{/cart/add}" method="post">

@@ -3,11 +3,40 @@
 	<head>
 		<meta charset="EUC-KR">
 		<title>회원가입</title>
+		<style>
+		    body {
+      			display: flex;
+			    justify-content: center;
+			    align-items: center;
+			    height: 100vh;
+			    margin: 0;
+			    text-align: center;
+    		}
+		    .container {
+		    	border: solid;
+      			width: 30%;
+      			margin: 0 auto;
+      			padding-bottom: 40px;
+			    border-radius: 10px;
+			    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    		}
+    		
+    		button {
+    			margin-top: 30px;
+				background-color: #305A50; /* 다크 그린 버튼 */
+				color: white; /* 버튼 텍스트 색상을 화이트로 설정합니다. */
+				padding: 10px 20px;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+    		
+		</style>
 	</head>
 	<body>
-		<div class="singup">
+		<div class="container">
 			<div>
-				<h4>회원가입</h4>
+				<h2>회원가입</h2>
 			</div>
 			<form th:action="@{/user/signup}" th:object="${userCheckForm}" method="post">
 				<!--
@@ -20,7 +49,7 @@
 				<select th:field = "*{isRole}">
 					<option value="ADMIN">판매자</option>
 					<option value="USER">소비자</option>
-				</select>
+				</select><br/>
 				<div>
 					<label for="userName">사용자ID</label>
 					<input type="text" th:field="*{userName}"/>
