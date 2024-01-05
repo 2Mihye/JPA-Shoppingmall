@@ -1,61 +1,54 @@
-### README sample (프로젝트 리드미 사용 방법)
-# 프로젝트 이름
+# JPA를 사용한 Shoppingmall
 
 <p align="center">
   <br>
-  이미지는 추후에 변경하시거나 삭제하시면 됩니다.<br /> 보통 메인 이미지를 올려놓습니다.<br />
-  <img src="https://img.freepik.com/free-vector/video-conference-remote-working-flat-illustration-screen-laptop-with-group-colleagues-people-conn_88138-548.jpg?w=900&t=st=1691033873~exp=1691034473~hmac=36bcd6579f5373a2f4555b77b3c120770cb7ab06608a267b80ca7ec436648620">
+  <img src="./img/index.PNG">
   <br>
 </p>
-
-
 
 ## 프로젝트 소개
 
-<p align="justify">
-프로젝트를 만들게 된 개요나 동기를 작성해주세요.
-</p>
-
 <p align="center">
-여러분이 만든 프로젝트를 캡쳐하거나 <strong>GIF</strong> 화면으로 만들어 <br />
-상대방이 프로젝트를 예시로 한 번에 볼수 있게 만들어주는게 좋습니다.<br />
-또는 배포하여 프로젝트 사이트를 올려도 좋습니다.<br />
-<strong>GIF</strong> 또는 <strong>Images</strong>
+JPA를 활용하여 쇼핑몰 가입, 로그인,  사진을 포함한 상품 올리기, 댓글 기능 구현
 </p>
 
 <br>
 
 ## 기술 스택
 
-| JavaScript |    Java    | 
-| :--------: | :--------: | 
-|   ![js]    |  ![java]   |
+### 개발 언어
+
+<div style="width: 200px; height: 100px;">
+  <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white" width="180" height="80"> 
+  <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white" width="180" height="80">
+</div>
 
 <br>
 
 ## 구현 기능
 
-### 기능 1
+### 회원가입
 
-### 기능 2
+<img src="./img/signup.PNG">
 
-### 기능 3
+### 로그인 실패
 
-### 기능 4
+<img src="./img/loginError.PNG">
+
+### 로그인 성공
+
+<img src="./img/afterLoginIIndex.PNG">
+
+### 상품 등록
+
+<img src="./img/add.PNG">
 
 <br>
 
 ## 배운 점 & 아쉬운 점
 
 <p align="justify">
-여러분이 프로젝트를 진행하며 배운 부분과 에러해결(trouble shooting)을 작성해서 기술하면 좋습니다.<br />
-트러블슈팅(trouble shooting) : 문제 해결의 일종 / 보통 컴퓨터 시스템에서 발생하는 문제들을 해결하는 용어로 많이 사용합니다.
+DB와의 연동으로 값을 집어넣고 빼는 과정이 너무 재미있었다.  조금 더 매끄럽게 CSS를 입히지 못한 것이 아쉽다 ! 
 </p>
 
 <br>
-
-
-<!-- Stack Icon Refernces -->
-
-[js]: ./readme-static/img/javascript.svg
-[java]: ./readme-static/img/java.svg
